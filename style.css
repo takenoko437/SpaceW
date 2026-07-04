@@ -1,0 +1,517 @@
+/* ===========================================================
+   The Second Earth
+   style.css
+=========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    width:100%;
+    height:100%;
+
+}
+
+body{
+
+    width:100%;
+    height:100%;
+
+    background:#f5f5f5;
+
+    overflow:hidden;
+
+    font-family:
+        "Yu Gothic",
+        "Yu Gothic UI",
+        "Meiryo",
+        sans-serif;
+
+}
+
+#page{
+
+    position:relative;
+
+    width:1280px;
+    height:720px;
+
+    margin:auto;
+
+}
+
+/*=========================
+        上部エリア
+=========================*/
+
+#topArea{
+
+    position:absolute;
+
+    left:94px;
+    top:74px;
+
+}
+
+/*=========================
+        ボタン列
+=========================*/
+
+#buttons{
+
+    display:flex;
+
+    flex-direction:row;
+
+    gap:12px;
+
+}
+
+/*=========================
+      ボタン共通
+=========================*/
+
+.square{
+
+    width:98px;
+    height:98px;
+
+    background:white;
+
+    cursor:pointer;
+
+    outline:none;
+
+    transition:
+        background .18s,
+        border-color .18s;
+
+}
+
+/*=========================
+      オン状態
+=========================*/
+
+.square.on{
+
+    background:black;
+
+}
+
+/*=========================
+      枠色
+=========================*/
+
+.green{
+
+    border:
+
+        4px solid
+
+        rgb(75,162,57);
+
+}
+
+.blue{
+
+    border:
+
+        4px solid
+
+        rgb(34,165,219);
+
+}
+
+/*=========================
+   左だけ緑・右だけ青
+=========================*/
+
+.greenblue{
+
+    border-width:4px;
+
+    border-style:solid;
+
+    border-color:
+
+        rgb(75,162,57)
+        rgb(34,165,219)
+        rgb(34,165,219)
+        rgb(75,162,57);
+
+}
+
+/*=========================
+        黒線
+=========================*/
+
+#lineContainer{
+
+    position:relative;
+
+    margin-top:10px;
+
+    width:1094px;
+
+    height:8px;
+
+}
+
+#leftLine{
+
+    position:absolute;
+
+    left:0;
+
+    width:1086px;
+
+    height:4px;
+
+    background:black;
+
+}
+
+#rightLine{
+
+    position:absolute;
+
+    right:0;
+
+    width:543px;
+
+    height:8px;
+
+    background:black;
+
+}
+
+/*=========================
+      下部エリア
+=========================*/
+
+#answerArea{
+
+    position:absolute;
+
+    left:298px;
+
+    top:436px;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+/*=========================
+        ○
+=========================*/
+
+.circle{
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    border:4px solid black;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:
+
+        border-color 1s;
+
+}
+
+/*=========================
+      絵文字
+=========================*/
+
+.circle span{
+
+    font-size:66px;
+
+    line-height:1;
+
+}
+
+/*=========================
+        「は」
+=========================*/
+
+#textHa{
+
+    margin-left:34px;
+
+    margin-right:34px;
+
+    font-size:58px;
+
+    font-weight:900;
+
+    color:#000;
+
+    line-height:1;
+
+    user-select:none;
+
+}
+
+/*=========================
+      「する器官」
+=========================*/
+
+#textSuru{
+
+    margin-left:34px;
+
+    font-size:58px;
+
+    font-weight:900;
+
+    color:#000;
+
+    line-height:1;
+
+    user-select:none;
+
+}
+
+/*=========================
+      CLEAR画面
+=========================*/
+
+#clearScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:
+        opacity .5s ease,
+        visibility 0s linear .5s;
+
+    z-index:99999;
+
+}
+
+/*=========================
+     表示状態
+=========================*/
+
+#clearScreen.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+
+    transition:
+        opacity .5s ease;
+
+}
+
+/*=========================
+     CLEAR画像
+=========================*/
+
+#clearInner{
+
+    width:100%;
+
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+#clearImage{
+
+    width:1280px;
+
+    height:720px;
+
+    object-fit:contain;
+
+    user-select:none;
+
+    pointer-events:none;
+
+}
+
+/*=========================
+      赤くなる演出
+=========================*/
+
+.circle.alert{
+
+    border-color:#d40000;
+
+}
+
+/*=========================
+      ボタン演出
+=========================*/
+
+.square:hover{
+
+    filter:brightness(0.97);
+
+}
+
+.square:active{
+
+    transform:scale(.985);
+
+}
+
+/*=========================
+      タッチ端末
+=========================*/
+
+@media (hover:none){
+
+    .square:hover{
+
+        filter:none;
+
+    }
+
+}
+
+/*=========================
+    レスポンシブ対応
+=========================*/
+
+@media screen and (max-width:1280px){
+
+    body{
+
+        display:flex;
+
+        justify-content:center;
+
+        align-items:center;
+
+    }
+
+    #page{
+
+        transform-origin:top center;
+
+    }
+
+}
+
+@media screen and (max-width:1279px){
+
+    #page{
+
+        transform:scale(calc(100vw / 1280));
+
+    }
+
+}
+
+@media screen and (max-height:719px){
+
+    #page{
+
+        transform-origin:center top;
+
+        transform:scale(calc(100vh / 720));
+
+    }
+
+}
+
+/*=========================
+     アニメーション
+=========================*/
+
+@keyframes pulseRed{
+
+    0%{
+
+        border-color:#000;
+
+    }
+
+    100%{
+
+        border-color:#d40000;
+
+    }
+
+}
+
+.circle.alert{
+
+    animation:
+
+        pulseRed
+
+        1s
+
+        forwards;
+
+}
+
+/*=========================
+      ボタン共通
+=========================*/
+
+button{
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    border-radius:0;
+
+    padding:0;
+
+}
+
+/*=========================
+      選択禁止
+=========================*/
+
+body{
+
+    user-select:none;
+
+    -webkit-user-select:none;
+
+}
